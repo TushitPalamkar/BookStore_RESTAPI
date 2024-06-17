@@ -18,7 +18,7 @@ app.use(cors({
 }));
 
 
-app.use('/', booksRoute);
+app.use('/books', booksRoute);
 
 
 
