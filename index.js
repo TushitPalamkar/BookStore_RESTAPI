@@ -20,9 +20,7 @@ app.use(cors({
 
 app.use('/books', booksRoute);
 
-app.get('/', (req, res) => {
-  res.status(200).send('Book Store');
-});
+
 
 connectdb(process.env.mongoDBURL).then(() => {
   app.listen(port, () => {
