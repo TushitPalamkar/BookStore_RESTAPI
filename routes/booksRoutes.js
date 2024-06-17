@@ -1,7 +1,7 @@
 import express from 'express';
 import { Book } from '../bookModel.js';
 const router=express.Router()
-router.post('/books',async (req,res)=>{
+router.post('/',async (req,res)=>{
     try{
         if(!req.body.title || !req.body.author || !req.body.publishYear)
             {
@@ -21,7 +21,7 @@ router.post('/books',async (req,res)=>{
     }
 })
 //Get all books
-router.get('/books',async(req,res)=>{
+router.get('/',async(req,res)=>{
     try{
         const book=await Book.find({})
        return res.status(200).json({
@@ -34,7 +34,7 @@ router.get('/books',async(req,res)=>{
     }
 })
 //Get single book
-router.get('/books/:id',async(req,res)=>{
+router.get('/:id',async(req,res)=>{
     try{
         const {id}=req.params
         const book= await Book.findById(id)
@@ -45,7 +45,7 @@ router.get('/books/:id',async(req,res)=>{
     }
 })
 //Update a book
-router.put('/books/:id',async(req,res)=>{
+router.put('/:id',async(req,res)=>{
     try{
         const {id}=req.params
         if(!req.body.title || !req.body.author || !req.body.publishYear)
@@ -65,7 +65,7 @@ router.put('/books/:id',async(req,res)=>{
     }
 })
 //Delete a book
-router.delete('/books/:id',async(req,res)=>{
+router.delete('/:id',async(req,res)=>{
     try{
         const {id}=req.params
         
